@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:45:02 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/15 13:10:47 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/15 12:55:20 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/15 12:58:30 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strcat(char *dest, const char *src)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned int	i;
-	unsigned int	j;
+	unsigned char	*oct1;
+	unsigned char	*oct2;
 
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[j] != '\0')
-	{
-		s1[i] = s2[j];
-		i++;
-		j++;
-	}
-	s1[i] = '\0';
-	return (s1);
+	if (dst == src || n == 0)
+		return (dst);
+	oct1 = (unsigned char*)dst;
+	oct2 = (unsigned char*)src;
+	while (n--)
+		*oct1++ = *oct2++;
+	return (dst);
 }

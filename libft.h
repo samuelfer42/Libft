@@ -6,15 +6,14 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 12:46:38 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/13 16:42:01 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/15 16:47:19 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <string.h>
-# include <stdio.h>
+# include <unistd.h>
 
 size_t strlen(const char *s);
 char *strcpy(char *dest, const char *src);
@@ -31,5 +30,21 @@ int	ft_isascii(int c);
 int	ft_isprint(int c);
 int	ft_toupper(int c);
 int	ft_tolower(int c);
+void *ft_memset(void *b, int c, size_t len);
+int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_strcmp(const char *s1, const char *s2);
+void *ft_memset(void *b, int c, size_t len);
+void ft_bzero(void *s, size_t n);
+void *ft_memcpy(void *dst, const void *src, size_t n);
+void *ft_memccpy(void *dst, const void *src, int c, size_t n);
+void *ft_memmove(void *dst, const void *src, size_t n);
+void ft_strclr(char *s);
+void ft_striter(char *s, void (*f)(char *));
+void ft_striteri(char *s, void (*f)(unsigned int, char *));
+char *ft_strmap(char const *s, char (*f)(char));
+void *ft_memalloc(size_t size);
+void ft_memdel(void **ap);
+char *ft_strnew(size_t size);
+void ft_strdel(char **as);
 
-#endif
+#endif	

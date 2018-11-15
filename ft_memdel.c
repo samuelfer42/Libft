@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:45:02 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/15 13:10:47 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/15 15:04:48 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/15 15:07:13 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strcat(char *dest, const char *src)
+void	ft_memdel(void **ap)
 {
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[j] != '\0')
+	if (ap != 0)
 	{
-		s1[i] = s2[j];
-		i++;
-		j++;
+		free(*ap);
+		*ap = NULL;
 	}
-	s1[i] = '\0';
-	return (s1);
 }

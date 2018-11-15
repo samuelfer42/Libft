@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 12:45:02 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/15 13:10:47 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/15 13:15:59 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/15 13:16:14 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*strcat(char *dest, const char *src)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	unsigned int	i;
-	unsigned int	j;
-
-	i = 0;
-	j = 0;
-	while (s1[i] != '\0')
-		i++;
-	while (s2[j] != '\0')
-	{
-		s1[i] = s2[j];
-		i++;
-		j++;
-	}
-	s1[i] = '\0';
-	return (s1);
+	while (*s != '\0')
+		f(s++);
 }
