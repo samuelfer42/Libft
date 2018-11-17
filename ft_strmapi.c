@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 13:06:03 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/16 12:15:18 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/17 12:44:02 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/17 12:44:53 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char			*map;
 	unsigned int	i;
-	unsigned int	j;
 
 	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j] != '\0' && j < n)
+	map = ft_strdup(s);
+	if (!map || !s || !f)
+		return (NULL);
+	while (map[i])
 	{
-		s1[i] = s2[j];
+		map[i] = f(i, map[i]);
 		i++;
-		j++;
 	}
-	s1[i] = '\0';
-	return (s1);
+	return (map);
 }

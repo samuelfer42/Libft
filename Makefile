@@ -6,13 +6,13 @@
 #    By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 11:58:37 by sfernand          #+#    #+#              #
-#    Updated: 2018/11/15 17:06:46 by sfernand         ###   ########.fr        #
+#    Updated: 2018/11/16 11:57:33 by sfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME = libft.a
-FLAGS = -Wall -Werror -Wextra
+NAME=libft.a
+CC=gcc
+CFLAGS=-Wall -Wextra -Werror
 SRC = ft_strlen.c \
 	   ft_bzero.c \
 	   ft_atoi.c \
@@ -42,17 +42,24 @@ SRC = ft_strlen.c \
 	   ft_tolower.c \
 	   ft_toupper.c \
 
+HEADERS = libft.h
+OBJ = $(SRC:.c=.o)
 
-		
+$(NAME): $(OBJ)
+		ar rc $(NAME) $(OBJ)
+		ranlib $(NAME)
+
+%.o: %.c
+		$(CC) -I. -o $@ -c $? $(CFLAGS)
+
 all: $(NAME)
 
-$(NAME):
-		gcc $(FLAGS) $(SRC)
-
 clean:
-	rm -f *.o
+		rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+		rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: clean fclean

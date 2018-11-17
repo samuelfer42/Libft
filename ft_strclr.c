@@ -6,13 +6,13 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 13:11:41 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/15 13:13:31 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/16 12:16:49 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_strclr(char *s)
+void	ft_strclr(char *s)
 {
 	while (*s != '\0')
 		*s++ = '\0';
