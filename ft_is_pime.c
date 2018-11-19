@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_is_pime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 13:44:14 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/19 13:38:14 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/19 13:48:43 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/19 14:33:13 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putnbr_fd(int n, int fd)
+static int	ft_is_prime(int nb)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	int	i;
+
+	i = 2;
+	if (nb == 1 || nb == 0)
+		return (0);
+	while (nb % i != 0)
+	{
+		if (i > nb)
+			return (0);
+		i++;
+	}
+	if (nb == i)
+		return (1);
+	else
+		return (0);
 }

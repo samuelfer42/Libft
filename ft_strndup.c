@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 13:44:14 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/19 13:38:14 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/19 13:58:36 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/19 14:08:34 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	char	*tmp;
+
+	if (!(tmp = ft_strnew(n)))
+		return (NULL);
+	ft_strncpy(tmp, s1, n);
+	return (tmp);
 }

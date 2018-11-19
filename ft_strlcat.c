@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 13:44:14 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/19 13:38:14 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/19 12:09:08 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/19 13:16:50 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	size_t	i;
+	size_t	j;
+	size_t	len_dst;
+
+	i = 0;
+	j = 0;
+	len_dst = ft_strlen(dst);
+	while (dst[i] != '\0' && i < size)
+		i++;
+	while (src[j] != '\0' && i < size - 1)
+		dst[i++] = src[j++];
+	if (size != 0 && size >= len_dst)
+		dst[i] = '\0';
+	if (size < ft_strlen(dst))
+		return (ft_strlen(src) + size);
+	else
+		return (ft_strlen(src) + len_dst);
 }

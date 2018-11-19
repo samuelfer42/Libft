@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 12:46:38 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/17 14:20:48 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/19 14:08:07 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ char *ft_strncpy(char *dst, const char *src, size_t len);
 char *ft_strcat(char *s1, const char *s2);
 char *ft_strncat(char *s1, const char *s2, size_t n);
 char *ft_strdup(char *src);
+void *ft_memchr(const void *s, int c, size_t n);
+int	ft_memcmp(const void *s1, const void *s2, size_t n);
+char *ft_strchr(const char *s, int c);
+char *ft_strrchr(const char *s, int c);
+char *ft_strstr(const char *grand, const char *petit);
+char *ft_strnstr(const char *grand, const char *petit, size_t len);
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 int ft_isdigit(int c);
 int ft_atoi(const char *str);
 int ft_isalpha(int c);
@@ -62,7 +69,11 @@ void ft_putchar_fd(char c, int fd);
 void ft_putstr_fd(char const *s, int fd);
 void ft_putendl_fd(char const *s, int fd);
 void ft_putnbr_fd(int n, int fd);
-void *ft_memchr(const void *s, int c, size_t n);
-int	ft_memcmp(const void *s1, const void *s2, size_t n);
-
+char **ft_strsplit(const char *s, char c);
+char *ft_itoa(int n);
+int	ft_sqrt(int nb);
+int	ft_is_prime(int nb);
+char *ft_strndup(const char *s1, size_t n);
+int	ft_countwords(char const *str, char c);
+void ft_swap(int *a, int *b);
 #endif

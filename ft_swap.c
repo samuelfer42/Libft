@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/17 13:44:14 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/19 13:38:14 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/19 14:06:20 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/19 14:06:23 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putnbr_fd(int n, int fd)
+void	ft_swap(int *a, int *b)
 {
-	ft_putstr_fd(ft_itoa(n), fd);
+	int		stock;
+
+	stock = *b;
+	*b = *a;
+	*a = stock;
 }
