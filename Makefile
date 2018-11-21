@@ -6,13 +6,13 @@
 #    By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 11:58:37 by sfernand          #+#    #+#              #
-#    Updated: 2018/11/19 14:07:45 by sfernand         ###   ########.fr        #
+#    Updated: 2018/11/21 00:09:29 by sfernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
-CC=gcc
-CFLAGS=-Wall -Wextra -Werror
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 SRC = ft_atoi.c \
 ft_bzero.c \
 ft_isascii.c \
@@ -58,7 +58,6 @@ ft_strnew.c \
 ft_strncpy.c \
 ft_strnequ.c \
 ft_strsplit.c \
-ft_strsplit.c \
 ft_strrchr.c \
 ft_strsub.c \
 ft_tolower.c \
@@ -69,26 +68,31 @@ ft_toupper.c \
 ft_sqrt.c \
 ft_is_prime.c \
 ft_strndup.c\
-ft_countworlds.c \
+ft_countwords.c \
 ft_swap.c \
+ft_lstnew.c \
+ft_lstdelone.c \
+ft_lstdel.c \
+ft_lstadd.c \
+ft_lstiter.c \
+ft_lstmap.c \
 
-HEADERS = libft.h
 OBJ = $(SRC:.c=.o)
-
-$(NAME): $(OBJ)
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
-
-%.o: %.c
-		$(CC) -I. -o $@ -c $? $(CFLAGS)
 
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<  -I .
+
 clean:
-		rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-		rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

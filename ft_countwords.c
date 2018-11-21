@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 13:15:59 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/21 17:43:44 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/19 14:00:24 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/21 00:11:26 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+int		ft_countwords(char const *str, char c)
 {
-	if (!s || !f)
-		return ;
-	while (*s)
+	int count;
+
+	count = 0;
+	while (*str)
 	{
-		f(&*s);
-		s++;
+		while (*str == c && *str)
+			str++;
+		if (*str != c && *str)
+		{
+			count++;
+			while (*str != c && *str)
+				str++;
+		}
 	}
+	return (count);
 }

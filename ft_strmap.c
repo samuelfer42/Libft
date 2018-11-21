@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 12:34:27 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/17 12:44:55 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/20 23:32:08 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,19 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char			*map;
+	char			*ret;
 	unsigned int	i;
 
-	i = 0;
-	map = ft_strdup(s);
-	if (!map || !s || !f)
+	if (!s)
 		return (NULL);
-	while (map[i])
+	if (!(ret = (char*)malloc(sizeof(char) * ft_strlen(s) + 1)))
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		map[i] = f(map[i]);
+		ret[i] = f(s[i]);
 		i++;
 	}
-	return (map);
+	ret[i] = '\0';
+	return (ret);
 }

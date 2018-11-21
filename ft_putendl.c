@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/17 13:12:20 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/17 13:43:34 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/20 21:51:08 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_putendl(char const *s)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
-	write(1, '\n', 1);
+	if (s)
+	{
+		ft_putstr(s);
+		ft_putchar('\n');
+	}
 }

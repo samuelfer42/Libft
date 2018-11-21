@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 12:09:08 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/19 13:16:50 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/20 23:48:22 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,29 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len_dst;
+	const char	*tmpsrc;
+	char		*tmpdst;
+	size_t		dsize;
+	size_t		length;
 
-	i = 0;
-	j = 0;
-	len_dst = ft_strlen(dst);
-	while (dst[i] != '\0' && i < size)
-		i++;
-	while (src[j] != '\0' && i < size - 1)
-		dst[i++] = src[j++];
-	if (size != 0 && size >= len_dst)
-		dst[i] = '\0';
-	if (size < ft_strlen(dst))
-		return (ft_strlen(src) + size);
-	else
-		return (ft_strlen(src) + len_dst);
+	tmpsrc = src;
+	tmpdst = dst;
+	length = size;
+	while (length-- && *tmpdst)
+		tmpdst++;
+	dsize = tmpdst - dst;
+	length = size - dsize;
+	if (!length)
+		return (dsize + ft_strlen(src));
+	while (*tmpsrc)
+	{
+		if (length != 1)
+		{
+			*tmpdst++ = *tmpsrc;
+			length--;
+		}
+		tmpsrc++;
+	}
+	*tmpdst = '\0';
+	return (dsize + (tmpsrc - src));
 }

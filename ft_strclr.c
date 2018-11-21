@@ -6,7 +6,7 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 13:11:41 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/16 12:16:49 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/21 17:43:02 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_strclr(char *s)
 {
-	while (*s != '\0')
-		*s++ = '\0';
+	if (!s)
+		return ;
+	ft_memset(s, '\0', ft_strlen(s));
 }

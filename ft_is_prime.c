@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_is_pime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 13:15:59 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/21 17:43:44 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/19 13:48:43 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/20 22:07:09 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+int	ft_is_prime(int nb)
 {
-	if (!s || !f)
-		return ;
-	while (*s)
+	int	i;
+
+	i = 2;
+	if (nb == 1 || nb == 0)
+		return (0);
+	while (nb % i != 0)
 	{
-		f(&*s);
-		s++;
+		if (i > nb)
+			return (0);
+		i++;
 	}
+	if (nb == i)
+		return (1);
+	else
+		return (0);
 }

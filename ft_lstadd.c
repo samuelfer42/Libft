@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 13:15:59 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/21 17:43:44 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/20 20:28:17 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/20 20:29:19 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (!s || !f)
-		return ;
-	while (*s)
-	{
-		f(&*s);
-		s++;
-	}
+	new->next = *alst;
+	*alst = new;
 }

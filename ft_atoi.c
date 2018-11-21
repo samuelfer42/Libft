@@ -6,35 +6,45 @@
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:10:46 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/16 11:01:24 by sfernand         ###   ########.fr       */
+/*   Updated: 2018/11/21 17:51:55 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
-{
-	int		i;
-	int		r;
-	int		s;
+#include "libft.h"
 
-	i = 0;
-	r = 0;
-	s = 1;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-		i++;
-	if (str[i] == '-')
+static int		ft_isspace(int c)
+{
+	if (c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f')
+		return (1);
+	else if (c == ' ')
+		return (1);
+	else
+		return (0);
+}
+
+int				ft_atoi(const char *str)
+{
+	int ret;
+	int min;
+
+	ret = 0;
+	min = 0;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		s = -1;
-		i++;
+		if (*str == '-')
+			min = 1;
+		str++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0')
+	while (*str && ft_isdigit(*str))
 	{
-		if (str[i] >= '0' && str[i] <= '9')
-			r = r * 10 + str[i] - '0';
-		else
-			break ;
-		i++;
+		ret *= 10;
+		ret += *str - '0';
+		str++;
 	}
-	return (s * r);
+	if (min)
+		return (-ret);
+	else
+		return (ret);
 }

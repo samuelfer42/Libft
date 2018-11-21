@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 13:15:59 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/21 17:43:44 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/20 20:29:21 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/20 20:29:24 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (!s || !f)
-		return ;
-	while (*s)
+	t_list	*a_effacer;
+	t_list	*prochain_maillon;
+
+	a_effacer = *alst;
+	while (a_effacer)
 	{
-		f(&*s);
-		s++;
+		prochain_maillon = a_effacer->next;
+		del(a_effacer->content, a_effacer->content_size);
+		free(a_effacer);
+		a_effacer = prochain_maillon;
 	}
+	*alst = NULL;
 }

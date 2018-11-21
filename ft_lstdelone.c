@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfernand <sfernand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/15 13:15:59 by sfernand          #+#    #+#             */
-/*   Updated: 2018/11/21 17:43:44 by sfernand         ###   ########.fr       */
+/*   Created: 2018/11/20 20:30:12 by sfernand          #+#    #+#             */
+/*   Updated: 2018/11/20 20:30:17 by sfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	if (!s || !f)
-		return ;
-	while (*s)
-	{
-		f(&*s);
-		s++;
-	}
+	del((*alst)->content, (*alst)->content_size);
+	ft_memdel((void **)alst);
 }
