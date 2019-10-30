@@ -9,7 +9,7 @@
 /*   Updated: 2019/10/28 20:12:34 by safernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+// does not work [KO]
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
